@@ -33,39 +33,39 @@ class CustomKeyboard extends Component {
 
     return (
       <Modal animationType={'slide'} transparent={true} visible={props.visible}>
-        <TouchableWithoutFeedback onPress={this.onCancelPress.bind(this)}>
-          <View style={styles.container}>
-            <View style={styles.modal}>
-              <View style={[styles.buttonview, { backgroundColor: props.buttonsBackgroundColor }]}>
-                <KeyboardButton
-                  color={props.buttonsTextColor}
-                  onPress={this.onCancelPress.bind(this)}
-                  text={props.cancelKeyText}
-                  textAlign={'left'}
-                  textSize={props.buttonsTextSize}
-                />
+        <View style={styles.container}>
+          <View style={styles.modal}>
+            <View style={[styles.buttonview, { backgroundColor: props.buttonsBackgroundColor }]}>
+              <KeyboardButton
+                color={props.buttonsTextColor}
+                onPress={this.onCancelPress.bind(this)}
+                text={props.cancelKeyText}
+                textAlign={'left'}
+                textSize={props.buttonsTextSize}
+                buttonStyle={props.buttonsStyle}
+              />
 
-                <KeyboardButton
-                  color={props.buttonsTextColor}
-                  onPress={this.onSubmitPress.bind(this)}
-                  text={props.submitKeyText}
-                  textAlign={'right'}
-                  textSize={props.buttonsTextSize}
-                />
-              </View>
+              <KeyboardButton
+                color={props.buttonsTextColor}
+                onPress={this.onSubmitPress.bind(this)}
+                text={props.submitKeyText}
+                textAlign={'right'}
+                textSize={props.buttonsTextSize}
+              />
+            </View>
 
-              <View>
-                  {props.children}
-              </View>
+            <View>
+                {props.children}
             </View>
           </View>
-        </TouchableWithoutFeedback>
+        </View>
       </Modal>
     );
   }
 }
 
 CustomKeyboard.propTypes =  {
+  buttonsStyle:           PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
   buttonsBackgroundColor: PropTypes.string,
   buttonTextColor:        PropTypes.string,
   buttonTextSize:         PropTypes.number,

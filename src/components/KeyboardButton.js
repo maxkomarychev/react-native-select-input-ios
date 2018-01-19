@@ -22,12 +22,12 @@ class KeyboardButton extends Component {
       <TouchableOpacity onPress={props.onPress}>
         <Text
           allowFontScaling={false}
-          style={{
+          style={[props.buttonsStyle, {
             width: BUTTON_WIDTH,
             color: props.color,
             textAlign: props.textAlign,
             fontSize: props.textSize || null
-          }}
+          }]}
         >
           {props.text}
         </Text>
@@ -37,11 +37,12 @@ class KeyboardButton extends Component {
 }
 
 KeyboardButton.propTypes =  {
-  color:     PropTypes.string.isRequired,
-  onPress:   PropTypes.func.isRequired,
-  text:      PropTypes.string.isRequired,
-  textAlign: PropTypes.string.isRequired,
-  textSize:  PropTypes.number,
+  color:        PropTypes.string.isRequired,
+  onPress:      PropTypes.func.isRequired,
+  text:         PropTypes.string.isRequired,
+  textAlign:    PropTypes.string.isRequired,
+  textSize:     PropTypes.number,
+  buttonsStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
 };
 
 export default KeyboardButton;
